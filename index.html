@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ali Arslan · graphic designer</title>
+  <title>Ali Arslan · graphic designer · balanced teal & white</title>
   <!-- Google Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* -------------------- RESET & VARIABLES -------------------- */
+    /* -------------------- RESET & VARIABLES — deep teal bg, white accents balanced -------------------- */
     * {
       margin: 0;
       padding: 0;
@@ -17,20 +17,22 @@
       font-family: 'Inter', 'Poppins', sans-serif;
     }
     body {
-      background-color: #0b0e14;       /* soft dark background */
-      color: #eef2f6;
+      background-color: #063231;       /* deep teal background */
+      color: #ffffff;
       line-height: 1.5;
       overflow-x: hidden;
     }
     :root {
-      --glass-bg: rgba(18, 22, 32, 0.7);
-      --card-light: #1e2432;
-      --grad-1: linear-gradient(145deg, #a56eff, #5b8cff, #2bc9ff);
-      --grad-2: linear-gradient(135deg, #b478ff, #3f9eff);
-      --neon-glow: 0 4px 15px rgba(90, 140, 255, 0.2); /* reduced glow */
-      --shadow-neumorph: 4px 4px 10px rgba(0, 0, 0, 0.3), -4px -4px 10px rgba(255, 255, 255, 0.02); /* softer */
+      --primary-teal: #063231;
+      --teal-light: #1f8a85;
+      --white-pure: #ffffff;
+      --off-white: #f0f8f7;
+      --shadow-soft: 0 15px 30px -12px rgba(0, 0, 0, 0.4);
     }
-    section { padding: 60px 10px; }
+    section { 
+      padding: 70px 10px; 
+    }
+    /* alternating sections - some white cards, some transparent */
     .container {
       max-width: 1300px;
       margin: 0 auto;
@@ -42,19 +44,46 @@
     }
     h2 {
       font-size: 2.5rem;
-      background: var(--grad-1);
+      margin-bottom: 2rem;
+      background: linear-gradient(145deg, #ffffff, #b2e0dd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 2rem;
     }
-    /* -------------------- STICKY TRANSPARENT NAVBAR -------------------- */
+    
+    /* cards with white background - but not too much white */
+    .white-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #063231;
+    }
+    .white-card h3, .white-card p, .white-card span {
+      color: #063231;
+    }
+    .white-card h2 {
+      background: linear-gradient(145deg, #063231, #1f8a85);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 0;
+    }
+    
+    /* half transparent sections */
+    .transparent-section {
+      background: transparent;
+      color: white;
+    }
+    
+    /* -------------------- STICKY NAV — teal with white accents -------------------- */
     .navbar {
       position: sticky;
       top: 0;
       z-index: 999;
       backdrop-filter: blur(16px) saturate(180%);
-      background: rgba(8, 12, 19, 0.6);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(6, 50, 49, 0.9);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       padding: 1rem 30px;
       display: flex;
       justify-content: space-between;
@@ -64,7 +93,7 @@
     .logo {
       font-size: 1.8rem;
       font-weight: 700;
-      background: linear-gradient(145deg, #ffffff, #cfd9ff);
+      background: linear-gradient(145deg, #ffffff, #b2e0dd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.5px;
@@ -76,16 +105,14 @@
     }
     .nav-links a {
       text-decoration: none;
-      color: #d0d9f0;
+      color: #ffffff;
       font-weight: 500;
       font-size: 1.1rem;
       transition: 0.2s;
       position: relative;
     }
     .nav-links a:hover, .nav-links a.active {
-      background: var(--grad-2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #b2e0dd;
     }
     .nav-links a.active::after {
       content: '';
@@ -94,7 +121,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background: linear-gradient(90deg, #b478ff, #3f9eff);
+      background: linear-gradient(90deg, #ffffff, #b2e0dd);
       border-radius: 2px;
     }
     .hamburger {
@@ -103,14 +130,13 @@
       cursor: pointer;
       color: white;
     }
-    /* mobile nav */
     @media (max-width: 800px) {
       .nav-links {
         position: fixed;
         top: 70px;
         left: 0;
         width: 100%;
-        background: rgba(12, 16, 26, 0.95);
+        background: rgba(6, 50, 49, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
         align-items: center;
@@ -118,7 +144,7 @@
         gap: 2rem;
         transform: translateY(-150%);
         transition: transform 0.4s ease;
-        border-bottom: 1px solid #2e3a55;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         z-index: 998;
       }
       .nav-links.show {
@@ -129,7 +155,7 @@
       }
     }
 
-    /* -------------------- HERO SPLIT -------------------- */
+    /* -------------------- HERO SPLIT — teal bg, white text -------------------- */
     .hero-grid {
       display: flex;
       justify-content: center;
@@ -143,7 +169,7 @@
     .hero-content h1 {
       font-size: clamp(2.8rem, 6vw, 5rem);
       line-height: 1.1;
-      background: linear-gradient(to right, #ffffff, #b2cbff);
+      background: linear-gradient(to right, #ffffff, #b2e0dd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -153,17 +179,17 @@
       display: flex;
       gap: 8px;
       margin: 20px 0 20px;
-      color: #b1c3e0;
+      color: white;
     }
     #typing {
-      background: var(--grad-2);
+      background: linear-gradient(145deg, #ffffff, #b2e0dd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 600;
     }
     .cursor {
       width: 4px;
-      background: #5b8cff;
+      background: white;
       animation: blink 0.7s infinite;
     }
     @keyframes blink { 50% { opacity: 0; } }
@@ -181,19 +207,22 @@
       transition: all 0.3s;
       border: none;
       cursor: pointer;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
+      background: transparent;
       color: white;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 6px 15px -8px #000000; /* reduced shadow */
+      border: 2px solid white;
     }
     .btn-primary {
-      background: linear-gradient(145deg, #6b47ff, #4179ff);
-      border: 1px solid #9bb3ff;
+      background: white;
+      color: #063231;
+      border: 2px solid white;
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: white;
     }
     .btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 25px -10px #6650ff; /* softer lift */
+      box-shadow: 0 15px 25px -10px rgba(0,0,0,0.5);
     }
     .hero-image {
       position: relative;
@@ -201,17 +230,17 @@
       background: url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&auto=format&fit=crop') center/cover;
       min-height: 400px;
       width: 50%;
-      box-shadow: var(--neon-glow), var(--shadow-neumorph);
-      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-soft);
+      border: 2px solid rgba(255, 255, 255, 0.3);
     }
     .floating-shape {
       position: absolute;
       width: 180px;
       height: 180px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #a772ff, #3c8aff);
+      background: radial-gradient(circle at 30% 30%, #ffffff, #b2e0dd);
       filter: blur(55px);
-      opacity: 0.2;
+      opacity: 0.15;
       z-index: -1;
       top: -30px;
       right: -40px;
@@ -219,83 +248,73 @@
     }
     @keyframes float { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(-30px,30px) scale(1.1);} }
 
-    /* -------------------- ABOUT CARD -------------------- */
+    /* -------------------- ABOUT — white card but not overwhelming -------------------- */
     .about-card {
-      background: var(--card-light);
-      border-radius: 28px;
-      padding: 40px;
-      backdrop-filter: blur(12px);
-      background: rgba(26, 33, 48, 0.8);
-      box-shadow: var(--shadow-neumorph);
-      border: 1px solid rgba(255, 255, 255, 0.03);
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
     }
-    .about-bio { flex: 2; min-width: 260px; }
+    /* .about-bio { flex: 2; min-width: 260px; } */
     .skills-summary { flex: 1; }
     .badge {
       display: inline-block;
-      background: #252f44;
+      background: rgba(255, 255, 255);
+      backdrop-filter: blur(5px);
       padding: 8px 20px;
       border-radius: 60px;
       font-weight: 500;
       margin: 5px 8px 5px 0;
-      border: 1px solid #4d6080;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
     }
 
-    /* -------------------- SERVICES CARDS - exactly 3 per row -------------------- */
+    /* -------------------- SERVICES CARDS — glass cards on teal -------------------- */
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);  /* fixed 3 columns */
+      grid-template-columns: repeat(3, 1fr);
       gap: 25px;
     }
     .service-card {
-      background: rgba(28, 35, 48, 0.7);
-      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
       border-radius: 20px;
       padding: 30px 20px;
       text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.02);
-      box-shadow: 3px 3px 10px #05070a, -3px -3px 10px #2a3142; /* reduced shadow */
+      border: 1px solid rgba(255, 255, 255, 0.2);
       transition: 0.25s ease;
+      color: white;
     }
     .service-card i {
       font-size: 3rem;
-      background: linear-gradient(145deg, #b794ff, #5fa5ff);
+      background: linear-gradient(145deg, #ffffff, #b2e0dd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 15px;
     }
+    .service-card h3, .service-card p {
+      color: white;
+    }
     .service-card:hover {
       transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 0 12px #6f8eff; /* softer glow */
+      background: rgba(255, 255, 255, 0.2);
+      border-color: white;
     }
-    /* make it responsive: 2 per row on tablet, 1 on mobile */
     @media (max-width: 900px) {
       .service-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-grid{
         flex-direction: column;
         gap: 50px;
       }
-      .hero-content{
-        width: 100%;
-      }
-      .hero-image{
-        width: 100%;
-      }
+      .hero-content, .hero-image { width: 100%; }
     }
     @media (max-width: 550px) {
       .service-grid { grid-template-columns: 1fr; }
-      .about-bio{
-        min-width: auto;
-      }
     }
 
-    /* -------------------- PROJECTS MASONRY -------------------- */
+    /* -------------------- PROJECTS MASONRY — glass cards -------------------- */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 25px;
       grid-auto-rows: 250px;
     }
@@ -303,17 +322,18 @@
       border-radius: 24px;
       overflow: hidden;
       position: relative;
-      box-shadow: var(--neon-glow);
+      height: 100%;
+      width: 100%;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       background-size: cover;
       background-position: center;
       transition: 0.35s;
     }
-    .project-item:nth-child(2) { grid-row: span 2; }
-    .project-item:nth-child(5) { grid-row: span 2; }
     .project-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(transparent 40%, #0a0e1a 95%);
+      background: linear-gradient(transparent 30%, rgba(6, 50, 49, 0.85));
       display: flex;
       align-items: flex-end;
       padding: 20px;
@@ -326,33 +346,33 @@
     .project-item:hover .project-overlay { opacity: 1; }
     .project-item:hover { transform: scale(0.98); }
 
-    /* -------------------- SKILLS BARS (animated) -------------------- */
+    /* -------------------- SKILLS BARS — on teal -------------------- */
     .skill-item { margin: 25px 0; }
-    .skill-title { display: flex; justify-content: space-between; }
+    .skill-title { display: flex; justify-content: space-between; color: white; }
     .progress-bg {
       height: 14px;
-      background: #232a38;
+      background: rgba(255, 255, 255, 0.2);
       border-radius: 30px;
       margin-top: 8px;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
     .progress-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #b478ff, #38a0ff);
+      background: linear-gradient(90deg, #ffffff, #b2e0dd);
       border-radius: 30px;
       transition: width 1.2s ease;
-      box-shadow: 0 0 5px #6795ff; /* reduced */
     }
 
-    /* -------------------- TESTIMONIAL SLIDER -------------------- */
+    /* -------------------- TESTIMONIAL SLIDER — glass -------------------- */
     .slider-container {
-      background: rgba(30, 37, 52, 0.6);
-      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
       border-radius: 40px;
       padding: 40px 30px;
-      border: 1px solid #ffffff0d;
-      box-shadow: var(--shadow-neumorph); /* softer */
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: var(--shadow-soft);
     }
     .testimonial-slide {
       display: none;
@@ -360,9 +380,10 @@
       font-size: 1.4rem;
       max-width: 700px;
       margin: 0 auto;
+      color: white;
     }
     .testimonial-slide.active-slide { display: block; }
-    .client-name { margin-top: 25px; font-weight: 600; color: #96b2ff; }
+    .client-name { margin-top: 25px; font-weight: 600; color: #b2e0dd; }
     .slider-dots {
       display: flex;
       justify-content: center;
@@ -372,22 +393,29 @@
     .dot {
       width: 14px;
       height: 14px;
-      background: #364153;
+      background: rgba(255, 255, 255, 0.3);
       border-radius: 50%;
       cursor: pointer;
       transition: 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
-    .dot.active-dot { background: #9bb3ff; width: 30px; border-radius: 20px; }
+    .dot.active-dot { background: white; width: 30px; border-radius: 20px; }
 
-    /* -------------------- CONTACT FORM -------------------- */
+    /* -------------------- CONTACT FORM — white card but small -------------------- */
     .contact-form {
       max-width: 680px;
       margin: 0 auto;
-      background: rgba(24, 31, 44, 0.8);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       border-radius: 40px;
       padding: 40px;
-      box-shadow: var(--shadow-neumorph);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .contact-form h2 {
+      background: linear-gradient(145deg, #063231, #1f8a85);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .input-group {
       margin-bottom: 25px;
@@ -396,22 +424,22 @@
     input, textarea {
       width: 100%;
       padding: 18px 20px;
-      background: #1b2332;
-      border: 1px solid #2b364b;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #063231;
       border-radius: 50px;
       font-size: 1rem;
-      color: white;
+      color: #063231;
       transition: 0.2s;
     }
     textarea { border-radius: 30px; resize: vertical; }
     input:focus, textarea:focus {
       outline: none;
-      border-color: #ad82ff;
-      box-shadow: 0 0 0 4px rgba(100, 130, 255, 0.15); /* subtle */
+      border-color: #1f8a85;
+      box-shadow: 0 0 0 4px rgba(6, 50, 49, 0.1);
     }
-    .error-message { color: #ff829b; font-size: 0.9rem; margin-top: 5px; display: none; }
+    .error-message { color: #b63e4b; font-size: 0.9rem; margin-top: 5px; display: none; }
 
-    /* -------------------- FOOTER -------------------- */
+    /* -------------------- FOOTER — teal bg, white text -------------------- */
     footer {
       padding: 40px 20px !important;
       display: flex;
@@ -419,27 +447,34 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid #20283a;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: white;
     }
     .socials i {
       font-size: 1.8rem;
       margin: 0 10px;
-      background: linear-gradient(145deg, #aeb9ff, #6f80c0);
+      background: linear-gradient(145deg, #ffffff, #b2e0dd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       transition: 0.2s;
     }
     .socials i:hover { transform: scale(1.2); }
     .back-to-top {
-      background: #252f44;
+      background: transparent;
       border-radius: 60px;
       padding: 12px 22px;
-      border: none;
+      border: 1px solid rgba(255, 255, 255, 0.3);
       color: white;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 5px 15px #00000030; /* lighter */
     }
+    .back-to-top:hover {
+      background: white;
+      color: #063231;
+      border-color: white;
+    }
+
     /* scroll reveal base */
     .reveal { opacity: 0; transform: translateY(35px); transition: 0.7s; }
     .reveal.active { opacity: 1; transform: translateY(0); }
@@ -461,7 +496,7 @@
     <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION (teal bg) -->
   <section id="home">
     <div class="container hero-grid">
       <div class="hero-content">
@@ -471,7 +506,7 @@
           <span id="typing"></span>
           <span class="cursor">|</span>
         </div>
-        <p style="color:#b4c6f0; max-width:500px;">Crafting bold identities, digital art, and immersive brand experiences with futuristic aesthetics.</p>
+        <p style="color:white; max-width:500px;">Crafting bold identities, digital art, and immersive brand experiences with fresh teal aesthetics.</p>
         <div class="btn-group">
           <a href="#contact" class="btn btn-primary">Hire Me</a>
           <a href="#projects" class="btn">View Work</a>
@@ -483,15 +518,15 @@
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about">
+  <!-- ABOUT SECTION (glass card on teal) -->
+  <section id="about" class="transparent-section">
     <div class="container reveal">
       <h2>About Me</h2>
-      <div class="about-card">
+      <div class="about-card white-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); color: white;">
         <div class="about-bio">
           <h3 style="color: white; font-size: 2rem;">Ali Arslan</h3>
-          <p style="margin: 20px 0;">Multi-disciplinary graphic designer with 8+ years of shaping visual identities for tech & lifestyle brands. I blend minimalism with futuristic gradients, keeping human experience at core. Based between NYC and Dubai.</p>
-          <p style="opacity: 0.8;">Passionate about 3D abstract art, motion design, and pushing the edge of glassmorphism.</p>
+          <p style="margin: 20px 0; color: white;">Multi-disciplinary graphic designer with 8+ years of shaping visual identities for tech & lifestyle brands. I blend minimalism with organic teal palettes, keeping human experience at core. Based between NYC and Dubai.</p>
+          <p style="opacity: 0.8; color: white;">Passionate about 3D abstract art, motion design, and pushing fresh air into glassmorphism.</p>
         </div>
         <div class="skills-summary">
           <span class="badge">branding</span>
@@ -505,8 +540,8 @@
     </div>
   </section>
 
-  <!-- SERVICES SECTION - exactly 3 cards per row -->
-  <section id="services">
+  <!-- SERVICES SECTION (glass cards on teal) -->
+  <section id="services" class="transparent-section">
     <div class="container reveal">
       <h2>Services</h2>
       <div class="service-grid">
@@ -520,8 +555,8 @@
     </div>
   </section>
 
-  <!-- PROJECTS SECTION (MASONRY) -->
-  <section id="projects">
+  <!-- PROJECTS SECTION (glass) -->
+  <section id="projects" class="transparent-section">
     <div class="container reveal">
       <h2>Selected projects</h2>
       <div class="projects-grid">
@@ -535,8 +570,8 @@
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills">
+  <!-- SKILLS SECTION (glass) -->
+  <section id="skills" class="transparent-section">
     <div class="container reveal">
       <h2>Technical arsenal</h2>
       <div class="skill-item"><div class="skill-title"><span>Photoshop / illustrator</span><span>95%</span></div><div class="progress-bg"><div class="progress-fill" data-width="95"></div></div></div>
@@ -546,30 +581,30 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS SLIDER -->
-  <section id="testimonials">
+  <!-- TESTIMONIALS SLIDER (glass) -->
+  <section id="testimonials" class="transparent-section">
     <div class="container reveal">
       <h2>Client love</h2>
       <div class="slider-container">
-        <div class="testimonial-slide active-slide">“Ali completely transformed our visual identity. The mix of dark & light with gradient accents perfectly captured our futuristic direction.” <div class="client-name">— Mia Chen, Creative Director at Aurora</div></div>
-        <div class="testimonial-slide">“One of the most talented designers I’ve worked with. His attention to glassmorphism and neumorphism details is insane.” <div class="client-name">— Omar Hassan, Founder of VYZN</div></div>
+        <div class="testimonial-slide active-slide">“Ali completely transformed our visual identity. The clean white and deep teal combination perfectly captured our fresh direction.” <div class="client-name">— Mia Chen, Creative Director at Aurora</div></div>
+        <div class="testimonial-slide">“One of the most talented designers I’ve worked with. His attention to teal accents and minimalist details is insane.” <div class="client-name">— Omar Hassan, Founder of VYZN</div></div>
         <div class="testimonial-slide">“The project was delivered with such premium quality. Every element feels cohesive and bold. Absolutely recommended.” <div class="client-name">— Julia Novak, Art Producer</div></div>
         <div class="slider-dots"><span class="dot active-dot"></span><span class="dot"></span><span class="dot"></span></div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT SECTION (white card but only this one) -->
   <section id="contact">
     <div class="container reveal">
-      <h2>Let’s create</h2>
+      <h2 style="text-align: center; margin-bottom: 2rem;">Let's create</h2>
       <div class="contact-form">
         <form id="contactForm">
           <div class="input-group"><input type="text" id="name" placeholder="Your name"><span class="error-message" id="nameError">Name required</span></div>
           <div class="input-group"><input type="email" id="email" placeholder="Email address"><span class="error-message" id="emailError">Valid email needed</span></div>
           <div class="input-group"><textarea id="message" rows="4" placeholder="Tell about your project"></textarea><span class="error-message" id="msgError">Message too short</span></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;">Send message</button>
-          <p style="text-align:center; margin-top:20px; color: #8db0ff;" id="formSuccess"></p>
+          <button type="submit" class="btn" style="width:100%; background: #063231; color: white; border: 2px solid #063231;">Send message</button>
+          <p style="text-align:center; margin-top:20px; color: #063231;" id="formSuccess"></p>
         </form>
       </div>
     </div>
@@ -584,10 +619,9 @@
     <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i> top</button>
   </footer>
 
-  <!-- JAVASCRIPT (internal) -->
+  <!-- JAVASCRIPT -->
   <script>
     (function() {
-      // typing animation
       const words = ['Ali Arslan', 'a visual storyteller', 'a brand shaper', 'a futurist'];
       let i = 0, j = 0, isDeleting = false;
       const typingSpan = document.getElementById('typing');
@@ -606,12 +640,10 @@
       }
       typeEffect();
 
-      // mobile menu toggle
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
       hamburger.addEventListener('click', () => navLinks.classList.toggle('show'));
 
-      // active link highlight + smooth scroll
       const sections = document.querySelectorAll('section');
       const navItems = document.querySelectorAll('.nav-link');
       window.addEventListener('scroll', () => {
@@ -626,7 +658,6 @@
         });
       });
 
-      // scroll reveal
       const reveals = document.querySelectorAll('.reveal');
       function revealCheck() {
         reveals.forEach(r => {
@@ -636,7 +667,6 @@
       }
       window.addEventListener('scroll', revealCheck); window.addEventListener('load', revealCheck);
 
-      // skill bars animate on scroll
       const skillFills = document.querySelectorAll('.progress-fill');
       function animateSkills() {
         skillFills.forEach(f => {
@@ -649,7 +679,6 @@
       }
       window.addEventListener('scroll', animateSkills); window.addEventListener('load', animateSkills);
 
-      // testimonials slider
       const slides = document.querySelectorAll('.testimonial-slide');
       const dots = document.querySelectorAll('.dot');
       dots.forEach((dot, idx) => {
@@ -661,10 +690,8 @@
         });
       });
 
-      // back to top
       document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-      // form validation
       const form = document.getElementById('contactForm');
       form.addEventListener('submit', (e) => {
         e.preventDefault();
